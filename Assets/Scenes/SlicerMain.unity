@@ -169,8 +169,8 @@ MonoBehaviour:
   lineMaterial: {fileID: 2100000, guid: 08bf0bb56fec4874cb807413842e9b5d, type: 2}
   minorColor: {r: 0.6901961, g: 0.7294118, b: 0.76862746, a: 1}
   majorColor: {r: 0.4, g: 0.46666667, b: 0.53333336, a: 1}
-  minorWidth: 0.004
-  majorWidth: 0.008
+  minorWidthMm: 0.5
+  majorWidthMm: 1
   yOffset: 0.005
 --- !u!1 &91704783
 GameObject:
@@ -1030,6 +1030,52 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &761284755
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 761284756}
+  - component: {fileID: 761284757}
+  m_Layer: 0
+  m_Name: VRMenuController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &761284756
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 761284755}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.74214, y: 0.71172, z: -1.10935}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &761284757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 761284755}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d2e8173f65d1bf4f8bbc00c646c1aef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::VRMenuToggle
+  vrMenuRoot: {fileID: 879406510}
+  controllerHand: 4
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -1248,6 +1294,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::VRModelLibrary
   loadModelButton: {fileID: 2144657721}
   modelListPanel: {fileID: 1177875291}
+  vrMenuRoot: {fileID: 0}
   stlImporter: {fileID: 245223725}
   modelFiles:
   - cubic V2.STL
@@ -2104,6 +2151,7 @@ CanvasRenderer:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 761284756}
   - {fileID: 330585546}
   - {fileID: 410087041}
   - {fileID: 832575519}

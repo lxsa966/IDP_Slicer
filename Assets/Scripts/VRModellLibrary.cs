@@ -8,7 +8,8 @@ public class VRModelLibrary : MonoBehaviour
 {
     [Header("VR-Oberfläche")]
     [SerializeField] private Button loadModelButton;
-    [SerializeField] private GameObject modelListPanel; 
+    [SerializeField] private GameObject modelListPanel;
+    [SerializeField] private GameObject vrMenuRoot; // Gesamtes World-Space-Menue (Canvas)
 
     [Header("Modellimport")]
     [SerializeField] private STLImporter stlImporter;
@@ -162,11 +163,17 @@ public class VRModelLibrary : MonoBehaviour
         return;
     }
 
-    // Vorhandenen STL-/OBJ-Importer verwenden
+    // Vorhandenen STL-/OBJ-Importer verwenden.
     stlImporter.LoadModel(fileName);
 
-    // Modellbibliothek schließen
-    modelListPanel.SetActive(false);
+    // Nur das Menue ausblenden; der Importer und das XR-Rig laufen weiter.
+    if (modelListPanel != null)
+        modelListPanel.SetActive(false);
+
+    if (vrMenuRoot != null)
+        vrMenuRoot.SetActive(false);
+    else
+        Debug.LogWarning("VRModelLibrary: VR Menu Root fehlt. Nur die Modellliste wurde geschlossen.");
 }
 
 }
